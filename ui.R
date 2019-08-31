@@ -1,22 +1,17 @@
+# example from http://shiny.rstudio.com/gallery/kmeans-example.html
+
 library(shiny)
 
-# Define UI for application that plots random distributions 
-shinyUI(pageWithSidebar(
-
-  # Application title
-  headerPanel("Hello Shiny!"),
-
-  # Sidebar with a slider input for number of observations
-  sidebarPanel(
-    sliderInput("obs", 
-                "Number of observations:", 
-                min = 1,
-                max = 1000, 
-                value = 500)
-  ),
-
-  # Show a plot of the generated distribution
-  mainPanel(
-    plotOutput("distPlot")
+shinyUI(
+  pageWithSidebar(
+    headerPanel('Iris k-means clustering THIS FORKING IS SO FRUSTRATUISGN'),
+    sidebarPanel(
+      selectInput('xcol', 'X FEWNISJDFHSDJKDHS', names(iris)),
+      selectInput('ycol', 'Y Variable', names(iris), selected=names(iris)[[2]]),
+      numericInput('clusters', 'Cluster count', 3, min=1, max=9)
+    ),
+    mainPanel(
+      plotOutput('plot1')
+    )
   )
-))
+)
